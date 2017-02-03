@@ -11,7 +11,7 @@ require_relative 'tokens'
 # removes tokens not passing the selection criteria.
 #
 module Tokkens
-  class TokenizerBool
+  class Tokenizer
 
     # default minimum token length
     MIN_LENGTH = 2

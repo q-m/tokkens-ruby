@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
 
-describe TokenizerBool do
+describe Tokenizer do
   let(:tokenizer) { described_class.new }
   let(:offset) { 1 } # default token offset
 
