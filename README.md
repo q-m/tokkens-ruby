@@ -25,6 +25,8 @@ Or install it yourself as:
 
     $ gem install tokkens
 
+Note that you'll need [Ruby](http://ruby-lang.org/) 2+.
+
 ## Usage
 
 ### Tokens
