@@ -16,19 +16,8 @@ module Tokkens
     # default minimum token length
     MIN_LENGTH = 2
 
-    # default stop words to ignore
-    STOP_WORDS = %w(
-      het de deze
-      en of om te hier nog ook al
-      in van voor mee per als tot uit bij
-      waar waardoor waarvan wanneer
-      je uw ze zelf jezelf
-      ca bijvoorbeeld
-      is bevat hebben kunnen mogen
-      gemaakt aanbevolen
-      belangrijke heerlijk heerlijke handig handige dagelijkse
-      gebruik allergieinformatie bijdrage smaak hoeveelheid
-    )
+    # no default stop words to ignore
+    STOP_WORDS = []
 
     # @!attribute [r] tokens
     #   @return [Tokens] object to use for obtaining tokens
