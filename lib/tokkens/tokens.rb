@@ -95,10 +95,12 @@ module Tokkens
     # Load tokens from file.
     #
     # The tokens are frozen by default.
+    # All previously existing tokens are removed.
     #
     # @param filename [String] Filename
     def load(filename)
       File.open(filename) do |f|
+        @tokens = {}
         f.each_line do |line|
           id, count, name = line.rstrip.split(/\s+/, 3)
           @tokens[name.strip] = [id.to_i, count]
