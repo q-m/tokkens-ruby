@@ -52,7 +52,7 @@ module Tokkens
     # @return [Array<Fixnum>] array of token numbers
     def get(s, **kwargs)
       return [] unless s and s.strip != ''
-      tokenize(s).map {|token| @tokens.get(token, **kwargs) }
+      tokenize(s).map {|token| @tokens.get(token, **kwargs) }.compact
     end
 
     private

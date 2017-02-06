@@ -18,6 +18,12 @@ describe Tokenizer do
       t = described_class.new(stop_words: ['xyz'])
       expect(t.get('xyz foo')).to eq [offset]
     end
+
+    it 'does not return nil tokens' do
+      tokenizer.tokens.get('foo')
+      tokenizer.tokens.freeze!
+      expect(tokenizer.get('foo bar')).to eq [offset]
+    end
   end
 
   describe '#tokens' do
