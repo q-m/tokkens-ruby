@@ -68,6 +68,20 @@ module Tokkens
       @frozen ? retrieve(s, **kwargs) : upsert(s, **kwargs)
     end
 
+    # Return an token by number.
+    #
+    # This class is optimized for retrieving by token, not by number.
+    #
+    # @param i [String] number to return token for
+    # @param prefix [String] optional string to remove from beginning of token
+    # @return [String, NilClass] given token, or +nil+ when not found
+    def find(i, **kwargs)
+      @tokens.each do |s, data|
+        return s if data[0] == i
+      end
+      nil
+    end
+
     # Return indexes for all of the current tokens.
     #
     # @return [Array<Fixnum>] All current token numbers.

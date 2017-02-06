@@ -34,6 +34,19 @@ describe Tokens do
     end
   end
 
+  describe '#find' do
+    it 'can find an existing token' do
+      tokens.get('blup')
+      i = tokens.get('blah')
+      expect(tokens.find(i)).to eq 'blah'
+    end
+
+    it 'returns nil for a non-existing token' do
+      tokens.get('blup')
+      expect(tokens.find(offset + 1)).to eq nil
+    end
+  end
+
   describe '#indexes' do
     it 'is empty without tokens' do
       expect(tokens.indexes).to eq []
