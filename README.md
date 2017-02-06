@@ -1,5 +1,8 @@
 # Tokkens
 
+[![Build Status](https://travis-ci.org/q-m/tokkens-ruby.svg?branch=master)](https://travis-ci.org/q-m/tokkens-ruby)
+[![Documentation](https://img.shields.io/badge/yard-docs-blue.svg)](http://www.rubydoc.info/github/q-m/tokkens-ruby/master)
+
 `Tokkens` makes it easy to apply a [vector space model](https://en.wikipedia.org/wiki/Vector_space_model)
 to text documents, targeted towards with machine learning. It provides a mapping
 between numbers and tokens (strings).
