@@ -45,6 +45,11 @@ describe Tokens do
       tokens.get('blup')
       expect(tokens.find(offset + 1)).to eq nil
     end
+
+    it 'removes the prefix' do
+      i = tokens.get('blup', prefix: 'FOO$')
+      expect(tokens.find(i, prefix: 'FOO$')).to eq 'blup'
+    end
   end
 
   describe '#indexes' do

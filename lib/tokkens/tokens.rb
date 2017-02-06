@@ -75,9 +75,11 @@ module Tokkens
     # @param i [String] number to return token for
     # @param prefix [String] optional string to remove from beginning of token
     # @return [String, NilClass] given token, or +nil+ when not found
-    def find(i, **kwargs)
+    def find(i, prefix: nil)
       @tokens.each do |s, data|
-        return s if data[0] == i
+        if data[0] == i
+          return (prefix && s.start_with?(prefix)) ? s[prefix.length..-1] : s
+        end
       end
       nil
     end
