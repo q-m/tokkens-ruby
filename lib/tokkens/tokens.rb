@@ -49,7 +49,7 @@ module Tokkens
         @tokens.delete_if {|name, data| data[1] < occurence }
       end
       if count
-        @tokens = @tokens.to_a.sort_by {|a| -a[1][1] }[0..(count-1)].to_h
+        @tokens = Hash[@tokens.to_a.sort_by {|a| -a[1][1] }[0..(count-1)]]
       end
       @tokens.length
     end
