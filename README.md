@@ -78,7 +78,7 @@ moment, this is a plain text file, with one line containing number, occurence an
 
 ```ruby
 @tokens.save('foo.tokens')
-# ---- in another program
+# ---- some time later
 @tokens = Tokkens::Tokens.new
 @tokens.load('foo.tokens')
 ```
@@ -91,6 +91,10 @@ most relevant. This is called feature selection or
 You can select by maximum `count` (most occuring words are kept).
 
 ```ruby
+@tokens = Tokkens::Tokens.new
+@tokens.get('foo')
+@tokens.get('bar')
+@tokens.get('baz')
 @tokens.indexes
 # => [1, 2, 3]
 @tokens.limit!(count: 2)
@@ -101,15 +105,15 @@ You can select by maximum `count` (most occuring words are kept).
 Or you can reduce by minimum `occurence`.
 
 ```ruby
-@tokens.get('hithere')
+@tokens.get('zab')
 # => 4
-@tokens.get('hithere')
-# => 4
+@tokens.get('bar')
+# => 2
 @tokens.indexes
 # => [1, 2, 4]
 @tokens.limit!(occurence: 2)
 @tokens.indexes
-# => [4]
+# => [2]
 ```
 
 Note that this limits only the tokens store, if you reference the tokens removed
