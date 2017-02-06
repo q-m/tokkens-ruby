@@ -1,8 +1,8 @@
-# Converts a string token to a uniquely identifying sequential number.
-#
-# Useful for working with a {https://en.wikipedia.org/wiki/Vector_space_model vector space model}
-# for text.
 module Tokkens
+  # Converts a string token to a uniquely identifying sequential number.
+  #
+  # Useful for working with a {https://en.wikipedia.org/wiki/Vector_space_model vector space model}
+  # for text.
   class Tokens
 
     # @!attribute [r] offset

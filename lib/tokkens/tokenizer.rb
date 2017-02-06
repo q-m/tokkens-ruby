@@ -1,16 +1,16 @@
 require_relative 'tokens'
 
-# Converts a string to a list of token numbers.
-#
-# Useful for computing with text, like machine learning.
-# Before using the tokenizer, you're expected to have pre-processed
-# the textdepending on application. For example, converting to lowercase,
-# removing non-word characters, transliterating accented characters.
-#
-# This class then splits the string into tokens by whitespace, and
-# removes tokens not passing the selection criteria.
-#
 module Tokkens
+  # Converts a string to a list of token numbers.
+  #
+  # Useful for computing with text, like machine learning.
+  # Before using the tokenizer, you're expected to have pre-processed
+  # the textdepending on application. For example, converting to lowercase,
+  # removing non-word characters, transliterating accented characters.
+  #
+  # This class then splits the string into tokens by whitespace, and
+  # removes tokens not passing the selection criteria.
+  #
   class Tokenizer
 
     # default minimum token length
