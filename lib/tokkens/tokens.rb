@@ -13,7 +13,7 @@ module Tokkens
       # liblinear can't use offset 0, libsvm doesn't mind to start at one
       @tokens = {}
       @offset = offset
-      @counter = offset
+      @next_number = offset
       @frozen = false
     end
 
@@ -40,16 +40,16 @@ module Tokkens
 
     # Limit the number of tokens.
     #
-    # @param count [Fixnum] Maximum number of tokens to retain
+    # @param max_size [Fixnum] Maximum number of tokens to retain
     # @param occurence [Fixnum] Keep only tokens seen at least this many times
     # @return [Fixnum] Number of tokens left
-    def limit!(count: nil, occurence: nil)
+    def limit!(max_size: nil, occurence: nil)
       # @todo raise if frozen
       if occurence
         @tokens.delete_if {|name, data| data[1] < occurence }
       end
-      if count
-        @tokens = Hash[@tokens.to_a.sort_by {|a| -a[1][1] }[0..(count-1)]]
+      if max_size
+        @tokens = Hash[@tokens.to_a.sort_by {|a| -a[1][1] }[0..(max_size-1)]]
       end
       @tokens.length
     end
@@ -64,7 +64,7 @@ module Tokkens
     # @option kwargs [String] :prefix optional string to prepend to the token
     # @return [Fixnum, NilClass] number for given token
     def get(s, **kwargs)
-      return unless s and s.strip != ''
+      return if !s || s.strip == ''
       @frozen ? retrieve(s, **kwargs) : upsert(s, **kwargs)
     end
 
@@ -128,11 +128,11 @@ module Tokkens
       data[0] if data
     end
 
-    # return token number, update counter; always returns a number
+    # return token number, update next_number; always returns a number
     def upsert(s, prefix: '')
       unless data = @tokens[prefix + s]
-        @tokens[prefix + s] = data = [@counter, 0]
-        @counter += 1
+        @tokens[prefix + s] = data = [@next_number, 0]
+        @next_number += 1
       end
       data[1] += 1
       data[0]

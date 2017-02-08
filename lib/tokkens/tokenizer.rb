@@ -47,7 +47,7 @@ module Tokkens
     private
 
     def tokenize(s)
-      s.split.map(&:strip).select(&method(:include?))
+      s.split.select(&method(:include?))
     end
 
     def include?(s)

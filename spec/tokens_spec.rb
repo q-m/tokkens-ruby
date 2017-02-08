@@ -97,11 +97,11 @@ describe Tokens do
   end
 
   describe '#limit!' do
-    it 'limits to most frequent tokens by count' do
+    it 'limits to most frequent tokens by max_size' do
       tokens.get('foo')
       tokens.get('blup')
       tokens.get('blup')
-      tokens.limit!(count: 1)
+      tokens.limit!(max_size: 1)
       expect(tokens.indexes).to eq [offset + 1]
     end
 
