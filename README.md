@@ -102,7 +102,7 @@ You can select by maximum `max_size` (most occuring words are kept).
 # => [1, 2]
 ```
 
-Or you can reduce by minimum `occurence`.
+Or you can reduce by minimum `min_occurence`.
 
 ```ruby
 @tokens.get('zab')
@@ -111,7 +111,7 @@ Or you can reduce by minimum `occurence`.
 # => 2
 @tokens.indexes
 # => [1, 2, 4]
-@tokens.limit!(occurence: 2)
+@tokens.limit!(min_occurence: 2)
 @tokens.indexes
 # => [2]
 ```

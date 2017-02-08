@@ -105,11 +105,11 @@ describe Tokens do
       expect(tokens.indexes).to eq [offset + 1]
     end
 
-    it 'limits by occurence' do
+    it 'limits by min_occurence' do
       tokens.get('foo')
       tokens.get('blup')
       tokens.get('foo')
-      tokens.limit!(occurence: 2)
+      tokens.limit!(min_occurence: 2)
       expect(tokens.indexes).to eq [offset]
     end
   end

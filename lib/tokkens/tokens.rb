@@ -41,12 +41,12 @@ module Tokkens
     # Limit the number of tokens.
     #
     # @param max_size [Fixnum] Maximum number of tokens to retain
-    # @param occurence [Fixnum] Keep only tokens seen at least this many times
+    # @param min_occurence [Fixnum] Keep only tokens seen at least this many times
     # @return [Fixnum] Number of tokens left
-    def limit!(max_size: nil, occurence: nil)
+    def limit!(max_size: nil, min_occurence: nil)
       # @todo raise if frozen
-      if occurence
-        @tokens.delete_if {|name, data| data[1] < occurence }
+      if min_occurence
+        @tokens.delete_if {|name, data| data[1] < min_occurence }
       end
       if max_size
         @tokens = Hash[@tokens.to_a.sort_by {|a| -a[1][1] }[0..(max_size-1)]]
