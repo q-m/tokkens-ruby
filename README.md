@@ -88,7 +88,7 @@ moment, this is a plain text file, with one line containing number, occurence an
 One common operation is reducing the number of words, to retain only those that are
 most relevant. This is called feature selection or
 [dimensionality reduction](https://en.wikipedia.org/wiki/Dimensionality_reduction).
-You can select by maximum `count` (most occuring words are kept).
+You can select by maximum `max_size` (most occuring words are kept).
 
 ```ruby
 @tokens = Tokkens::Tokens.new
@@ -97,7 +97,7 @@ You can select by maximum `count` (most occuring words are kept).
 @tokens.get('baz')
 @tokens.indexes
 # => [1, 2, 3]
-@tokens.limit!(count: 2)
+@tokens.limit!(max_size: 2)
 @tokens.indexes
 # => [1, 2]
 ```
