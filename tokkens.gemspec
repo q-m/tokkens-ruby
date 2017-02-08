@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["wvengen"]
   spec.email         = ["dev-rails@willem.engen.nl"]
   spec.summary       = %q{Simple text to numbers tokenizer}
-  spec.homepage      = "https://github.com/q-m/ruby-tokkens"
+  spec.homepage      = "https://github.com/q-m/tokkens-ruby"
   spec.license       = "MIT"
   spec.description   = <<-EOD
     Tokkens makes it easy to apply a vector space model to text documents,
